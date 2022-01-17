@@ -28,8 +28,8 @@ invite_base = {
   'guestsCanInviteOthers': True,
   'guestsCanSeeOtherGuests': True,
   "organizer": {
-    "email": 'jlgray024@gmail.com',
-    "displayName": 'Jacob Gray',
+    # "email": 'jlgray024@gmail.com',
+    # "displayName": 'Jacob Gray',
     "self": True,
   },
 }
@@ -38,8 +38,9 @@ timezone = 'America/Los_Angeles'
 
 
 def main():
-    """Shows basic usage of the Google Calendar API.
-    Prints the start and name of the next 10 events on the user's calendar.
+    """
+    Create basketball invite for tomorrow at 1pm.
+    Job to scheduled for every Saturday at 9am.
     """
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is
@@ -60,9 +61,9 @@ def main():
             token.write(creds.to_json())
 
     try:
+        # Call the Calendar API
         service = build('calendar', 'v3', credentials=creds)
 
-        # Call the Calendar API
         now = datetime.datetime.now()
         print(f'{now}: Creating basketball invite...')
         tommorow = f'{now.year}-{now.month}-{now.day + 1}'
