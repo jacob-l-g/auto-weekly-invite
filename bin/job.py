@@ -30,7 +30,7 @@ invite_base = {
   "organizer": {
     "email": 'jlgray024@gmail.com',
     "displayName": 'Jacob Gray',
-    "self": True
+    "self": True,
   },
 }
 
@@ -78,7 +78,7 @@ def main():
             'dateTime': f'{tommorow}T16:00:00',
             'timeZone': timezone,
         }
-        
+
         event = service.events().insert(calendarId='basketball', body=invite, sendNotifications=True).execute()
 
         print (f"Event created: {event.get('htmlLink')}")
